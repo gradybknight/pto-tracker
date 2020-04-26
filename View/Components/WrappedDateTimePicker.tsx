@@ -1,22 +1,11 @@
 import React from 'react';
-import { Platform, View } from 'react-native';
-import DatePicker from 'react-datepicker';
+import { View, Text } from 'react-native';
+import { WrappedDateTimePickerProps } from './WrappedDateTimePicker.web';
 
-const WrappedDateTimePicker = () => {
-  const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date());
-  const handleDateChange = (date: Date | null) => {
-    setSelectedDate(date);
-  };
-
-  const domPicker = (
-    <>
-      <View>
-        <DatePicker selected={selectedDate} onChange={setSelectedDate} />
-      </View>
-    </>
+const WrappedDateTimePicker: React.FC<WrappedDateTimePickerProps> = ({ selectedDate }) => {
+  return (
+    <View>
+      <Text>This is wrapped</Text>
+    </View>
   );
-
-  return Platform.OS === 'web' ? domPicker : null;
 };
-
-export default WrappedDateTimePicker;
